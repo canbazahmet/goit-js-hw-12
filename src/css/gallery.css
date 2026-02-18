@@ -1,72 +1,110 @@
 @import url('izitoast/dist/css/iziToast.min.css');
 @import url('simplelightbox/dist/simple-lightbox.min.css');
 @import url('./common.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-.container {
-  width: 1440px;
-  padding: 36px;
-  margin-left: auto;
-  margin-right: auto;
+:root {
+  --accent: #ff7a59;
+  --accent-dark: #e45538;
+  --ink: #1c1b1f;
+  --paper: #fff7ef;
+  --shadow: 0 18px 45px rgba(28, 27, 31, 0.12);
+  --radius-lg: 18px;
+  --radius-sm: 10px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: var(--ink);
+  background-color: var(--paper);
+}
+
+.gallery-section {
+  min-height: 100vh;
+  padding: 48px 0 72px;
+  background-image:
+    radial-gradient(circle at 20% 20%, #ffe3d6 0, transparent 45%),
+    radial-gradient(circle at 80% 10%, #ffd6c8 0, transparent 40%),
+    linear-gradient(160deg, #fff7ef 0%, #fff1e7 50%, #ffe9dd 100%);
 }
 
 .search-form {
-  width: 371px;
+  width: min(420px, 100%);
   display: flex;
-  margin: 0 auto;
-  margin-bottom: 40px;
+  margin: 0 auto 40px;
+  gap: 10px;
+  padding: 10px;
+  border-radius: var(--radius-lg);
+  background-color: #ffffff;
+  box-shadow: var(--shadow);
 }
 
 .search-input {
   font-size: 16px;
   flex-grow: 1;
   height: 40px;
-  padding-left: 16px;
-  border: 1px solid #808080;
-  border-radius: 4px;
-  color: #808080;
+  padding: 0 16px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--ink);
   outline: none;
+  background: #fff6f1;
 }
 
 .search-input:hover {
-  border-color: #000;
+  border-color: #ffcab8;
 }
 .search-input:focus {
-  color: #2e2f42;
-  border-color: #4e75ff;
+  color: var(--ink);
+  border-color: var(--accent);
 }
 
 .search-btn {
   font-size: 16px;
-  padding: 8px 16px;
-  background-color: #4e75ff;
+  padding: 8px 18px;
+  background-color: var(--accent);
   color: #ffffff;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   text-transform: capitalize;
-  margin-left: 8px;
   cursor: pointer;
+  font-weight: 600;
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease;
 }
 .search-btn:hover {
-  background-color: #6c8cff;
+  background-color: var(--accent-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(255, 122, 89, 0.35);
 }
 
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 22px;
+  justify-content: center;
 }
 
 .gallery-card {
-  width: calc((100% - 48px) / 3);
-  border: 1px solid #808080;
+  width: min(340px, 100%);
+  border: 1px solid rgba(28, 27, 31, 0.08);
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 340px;
   transition: transform var(--animation-duration) var(--timing-function);
+  box-shadow: 0 12px 30px rgba(28, 27, 31, 0.08);
+  animation: card-rise 450ms ease both;
 }
 .gallery-card:hover {
   transform: scale(1.03);
 }
 
 .gallery-img {
-  height: 260px;
+  height: 220px;
   width: 100%;
   object-fit: cover;
   overflow: hidden;
@@ -76,7 +114,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 4px 20px;
+  padding: 12px 18px 16px;
+  gap: 10px;
+  background: #fffaf6;
+  min-height: 92px;
 }
 
 .gallery-info-item {
@@ -84,6 +125,28 @@
   flex-direction: column;
   text-align: center;
   font-size: 12px;
+  color: #45424a;
+}
+
+.load-more-btn {
+  display: block;
+  margin: 32px auto 0;
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: none;
+  background: var(--ink);
+  color: #ffffff;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  transition:
+    transform 150ms ease,
+    background 150ms ease;
+}
+
+.load-more-btn:hover {
+  background: #3a3840;
+  transform: translateY(-2px);
 }
 
 .loader {
@@ -94,8 +157,33 @@
   letter-spacing: 0.4px;
   text-align: center;
   padding: 0;
+  margin-top: 16px;
+  color: #6b6670;
 }
 
 .is-hidden {
   display: none;
+}
+
+@keyframes card-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (min-width: 768px) {
+  .gallery-card {
+    width: calc((100% - 44px) / 2);
+  }
+}
+
+@media (min-width: 1200px) {
+  .gallery-card {
+    width: calc((100% - 44px) / 3);
+  }
 }

@@ -10,7 +10,7 @@ export const createGalleryCard = ({
   return `
         <li class='gallery-card'>
             <a href="${largeImageURL}">
-                <img class="gallery-img" src="${webformatURL}" alt="${tags} loading='lazy" />
+                <img class="gallery-img" src="${webformatURL}" alt="${tags}" loading="lazy" />
             </a>
             <div class="gallery-info">
                 <p class="gallery-info-item">
