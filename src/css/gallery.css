@@ -1,0 +1,101 @@
+@import url('izitoast/dist/css/iziToast.min.css');
+@import url('simplelightbox/dist/simple-lightbox.min.css');
+@import url('./common.css');
+
+.container {
+  width: 1440px;
+  padding: 36px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-form {
+  width: 371px;
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+.search-input {
+  font-size: 16px;
+  flex-grow: 1;
+  height: 40px;
+  padding-left: 16px;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  color: #808080;
+  outline: none;
+}
+
+.search-input:hover {
+  border-color: #000;
+}
+.search-input:focus {
+  color: #2e2f42;
+  border-color: #4e75ff;
+}
+
+.search-btn {
+  font-size: 16px;
+  padding: 8px 16px;
+  background-color: #4e75ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  text-transform: capitalize;
+  margin-left: 8px;
+  cursor: pointer;
+}
+.search-btn:hover {
+  background-color: #6c8cff;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.gallery-card {
+  width: calc((100% - 48px) / 3);
+  border: 1px solid #808080;
+  transition: transform var(--animation-duration) var(--timing-function);
+}
+.gallery-card:hover {
+  transform: scale(1.03);
+}
+
+.gallery-img {
+  height: 260px;
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.gallery-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 20px;
+}
+
+.gallery-info-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 12px;
+}
+
+.loader {
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.4px;
+  text-align: center;
+  padding: 0;
+}
+
+.is-hidden {
+  display: none;
+}
