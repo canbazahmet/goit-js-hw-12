@@ -71,6 +71,9 @@ const loadImages = async () => {
 
     totalHits = data.totalHits;
     renderImages(data.hits);
+    if (currentPage > 1) {
+      scrollAfterAppend();
+    }
 
     const loadedCount = galleryEl.children.length;
     if (data.hits.length < PER_PAGE || loadedCount >= totalHits) {
@@ -110,7 +113,6 @@ const onLoadMoreClick = async () => {
 
   const loadedCount = galleryEl.children.length;
   updateLoadMoreVisibility(loadedCount);
-  scrollAfterAppend();
 };
 
 searchFormEl.addEventListener('submit', onSearchFormSubmit);
